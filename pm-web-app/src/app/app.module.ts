@@ -18,9 +18,9 @@ export function kcFactory(kcService : KeycloakService) {
   return ()=>{
     kcService.init({
       config : {
-        realm : "pm-realm",
-        clientId : "pm-client",
-        url : "http://localhost:8080/"
+        realm : "core-cms",
+        clientId : "frontend",
+        url : "https://keycloak.blabteams.com/"
       }, initOptions : {
         onLoad : "check-sso",
         checkLoginIframe : true

@@ -7,6 +7,7 @@ import net.hamzaouggadi.customerservice.service.CustomerService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -15,8 +16,8 @@ public class CustomerController {
     private CustomerService customerService;
     @GetMapping("/customers")
     @PreAuthorize("hasAuthority('User')")
-    public List<Customer> getCustomerList() {
-        return customerService.listCustomers();
+    public List<Customer> getCustomerList(Principal principal) {
+        return customerService.listCustomers(principal);
     }
     @GetMapping("/customers/{customerId}")
 //    @PreAuthorize("hasAuthority('User')")
